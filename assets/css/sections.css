@@ -264,9 +264,22 @@ body.menu-open { overflow: hidden; }
 .f-card .meta .ic-sm { color: var(--accent); opacity: .8; }
 .f-card-accent {
   background:
+    linear-gradient(180deg, rgba(255, 255, 255, .035), rgba(255, 255, 255, 0) 60%),
     radial-gradient(ellipse 90% 70% at 100% 0%, rgba(163, 255, 95, .07), transparent 55%),
     var(--card);
   border-color: rgba(163, 255, 95, .3);
+  border-top: 3px solid transparent;
+}
+/* Borda superior de 3px em degradê verde (sobre a borda transparente) */
+.f-card-accent::before {
+  top: -3px; left: -1px; right: -1px; height: 3px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: linear-gradient(90deg,
+    rgba(163, 255, 95, .15),
+    var(--accent) 45%,
+    rgba(163, 255, 95, .85) 60%,
+    rgba(163, 255, 95, .15));
+  z-index: 2;
 }
 
 /* ============================================================
@@ -281,11 +294,36 @@ body.menu-open { overflow: hidden; }
 .skills-sub::after { content: ""; height: 1px; flex: 1; background: linear-gradient(90deg, var(--border), transparent); }
 .skills-sub span { color: var(--accent); margin-right: -8px; }
 .skills-tech { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin-bottom: 52px; }
-.skills-areas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.skills-areas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: n; }
 .skill-card { padding: 24px 22px; display: flex; flex-direction: column; gap: 13px; }
 .skill-card h3 { font-size: 15.5px; font-weight: 600; }
 .skill-card p { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
 .skill-card .icon-box { width: 40px; height: 40px; flex-basis: 40px; border-radius: 11px; }
+
+/* Tecnologias: ícone + nome lado a lado, descrição abaixo em largura total */
+.skills-tech .skill-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 12px;
+  row-gap: 10px;
+  padding: 20px;
+}
+.skills-tech .skill-card .icon-box { grid-column: 1; grid-row: 1; width: 36px; height: 36px; flex-basis: 36px; border-radius: 10px; }
+.skills-tech .skill-card h3 { grid-column: 2; grid-row: 1; font-size: 14.5px; }
+.skills-tech .skill-card p { grid-column: 1 / -1; grid-row: 2; font-size: 12.5px; line-height: 1.6; }
+
+/* Numeração discreta (01, 02, 03...) nas áreas de atuação */
+.skills-areas > .skill-card { counter-increment: n; }
+.skills-areas > .skill-card h3 { padding-right: 42px; }
+.skills-areas > .skill-card h3::before {
+  content: counter(n, decimal-leading-zero);
+  position: absolute; top: 22px; right: 22px;
+  font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+  letter-spacing: .08em;
+  color: rgba(163, 255, 95, .38);
+  pointer-events: none;
+}
 
 /* ============================================================
    PROJETOS
@@ -356,11 +394,39 @@ body.menu-open { overflow: hidden; }
 /* ============================================================
    SERVIÇOS
    ============================================================ */
-.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.service-card { padding: 30px 28px; display: flex; flex-direction: column; gap: 15px; }
-.service-card h3 { font-family: var(--font-display); font-size: 17.5px; font-weight: 700; line-height: 1.4; }
-.service-card p { font-size: 14px; color: var(--muted); line-height: 1.7; flex-grow: 1; }
-.service-card .btn { align-self: flex-start; margin-top: 6px; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; counter-reset: n; }
+.service-card { padding: 30px 28px; display: flex; flex-direction: column; gap: 14px; }
+.service-card h3 { font-family: var(--font-display); font-size: 17.5px; font-weight: 700; line-height: 1.4; padding-right: 42px; }
+.service-card p {
+  font-size: 14px; color: var(--muted); line-height: 1.7; flex-grow: 1;
+  border-bottom: 1px solid var(--border-soft);
+  padding-bottom: 14px;
+}
+
+/* Numeração discreta (01, 02, 03...) nos serviços */
+.services-grid > .service-card { counter-increment: n; }
+.services-grid > .service-card h3::before {
+  content: counter(n, decimal-leading-zero);
+  position: absolute; top: 26px; right: 28px;
+  font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+  letter-spacing: .08em;
+  color: rgba(163, 255, 95, .38);
+  pointer-events: none;
+}
+
+/* CTA em link verde limão */
+.service-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  align-self: flex-start;
+  color: var(--accent);
+  font-size: 14px; font-weight: 600;
+  padding-block: 4px;
+  transition: color .3s var(--ease), text-decoration-color .3s var(--ease);
+}
+.service-cta:hover { color: #C2FF92; text-decoration: underline; text-underline-offset: 4px; }
+.service-cta .service-cta-arrow { transition: transform .3s var(--ease); }
+.service-card:hover .service-cta .service-cta-arrow,
+.service-cta:focus-visible .service-cta-arrow { transform: translateX(5px); }
 
 /* ============================================================
    PROCESSO

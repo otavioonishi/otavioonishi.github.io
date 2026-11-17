@@ -40,3 +40,4 @@
 }
 @media (max-width: 420px) {
   .skills-tech { grid-template-columns: 1fr; }
+}

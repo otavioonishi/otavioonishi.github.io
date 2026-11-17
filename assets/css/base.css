@@ -151,16 +151,50 @@ ul, ol { list-style: none; }
 
 /* ---------- Cards, chips e ícones ---------- */
 .card {
-  background: var(--card);
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .035), rgba(255, 255, 255, 0) 60%),
+    var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
-.lift { transition: transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease); }
-.lift:hover {
+/* Reflexo de luz na borda superior */
+.card::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(255, 255, 255, .18) 20%,
+    rgba(163, 255, 95, .35) 50%,
+    rgba(255, 255, 255, .14) 80%,
+    transparent);
+  z-index: 1;
+}
+.lift {
+  position: relative;
+  z-index: 0; /* cria stacking context: o spotlight fica acima do fundo e abaixo do texto */
+  transition: transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
+}
+/* Spotlight que segue o cursor (--mx/--my definidos no JS) */
+.lift::after {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(163, 255, 95, .09), transparent 70%);
+  opacity: 0;
+  transition: opacity .35s var(--ease);
+  z-index: -1;
+}
+.lift:hover, .lift:focus-within {
   transform: translateY(-4px);
   border-color: var(--accent-line);
-  box-shadow: 0 22px 44px rgba(0, 0, 0, .38);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, .38), 0 0 28px rgba(163, 255, 95, .06);
 }
+.lift:hover::after, .lift:focus-within::after { opacity: 1; }
 .icon-box {
   width: 44px; height: 44px; flex: 0 0 44px;
   display: grid; place-items: center;
@@ -168,6 +202,12 @@ ul, ol { list-style: none; }
   background: var(--accent-soft);
   border: 1px solid rgba(163, 255, 95, .22);
   color: var(--accent);
+  transition: transform .35s var(--ease), background-color .35s var(--ease), box-shadow .35s var(--ease);
+}
+.lift:hover .icon-box, .lift:focus-within .icon-box {
+  transform: scale(1.08);
+  background: rgba(163, 255, 95, .16);
+  box-shadow: 0 0 22px rgba(163, 255, 95, .28);
 }
 .chip {
   display: inline-flex; align-items: center; gap: 8px;

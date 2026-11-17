@@ -146,14 +146,22 @@
         });
       }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
       $$("[data-reveal]").forEach(function (el) { io.observe(el); });
-      $$("[data-reveal-group]").forEach(function (g) {
-        Array.prototype.forEach.call(g.children, function (c, i) {
-          c.style.transitionDelay = Math.min(i * 70, 420) + "ms";
-        });
-        io.observe(g);
-      });
+      $$("[data-reveal-group]").forEach(function (g) { io.observe(g); });
     } else {
       $$("[data-reveal], [data-reveal-group]").forEach(function (el) { el.classList.add("in"); });
+    }
+
+    /* ================= Spotlight nos cards (.lift) =================
+       Atualiza --mx/--my com a posição do cursor relativa ao card. */
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduceMotion) {
+      $$(".lift").forEach(function (card) {
+        card.addEventListener("pointermove", function (e) {
+          var rect = card.getBoundingClientRect();
+          card.style.setProperty("--mx", (e.clientX - rect.left) + "px");
+          card.style.setProperty("--my", (e.clientY - rect.top) + "px");
+        });
+      });
     }
 
     /* ================= Botões "Solicitar orçamento" dos serviços =================
