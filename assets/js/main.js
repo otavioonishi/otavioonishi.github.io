@@ -164,26 +164,58 @@
       });
     }
 
-    /* ================= Botões "Solicitar orçamento" dos serviços =================
-       Rola até o formulário e pré-seleciona o tipo de serviço. */
+    /* ================= Formulário protegido por botão ================= */
+    var formGate = $("#form-gate");
+
+    function focusFirstField() {
+      var first = $("#f-nome");
+      if (!first) return;
+      try { first.focus({ preventScroll: true }); } catch (err) { first.focus(); }
+    }
+
+    if (formGate) {
+      formGate.addEventListener("toggle", function () {
+        if (formGate.open) requestAnimationFrame(focusFirstField);
+      });
+    }
+
+    /* Abre o acordeão, pré-seleciona o serviço (quando houver) e foca o primeiro campo. */
+    function openFormGate(service, shouldScroll) {
+      if (formGate) formGate.open = true;
+      if (service) {
+        var select = $("#f-tipo");
+        if (select) select.value = service;
+      }
+      requestAnimationFrame(focusFirstField);
+
+      if (shouldScroll !== false) {
+        var target = $("#contato");
+        if (target) {
+          target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+        }
+      }
+      if (!reduceMotion) {
+        requestAnimationFrame(function () {
+          var card = $("#form-card");
+          if (!card) return;
+          card.classList.remove("pulse");
+          void card.offsetWidth;
+          card.classList.add("pulse");
+        });
+      }
+    }
+
     $$(".js-orcamento").forEach(function (btn) {
       btn.addEventListener("click", function (e) {
         e.preventDefault();
-        var value = btn.getAttribute("data-service");
-        var select = $("#f-tipo");
-        if (value && select) select.value = value;
-        var target = $("#contato");
-        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-        setTimeout(function () {
-          var card = $("#form-card");
-          if (card) {
-            card.classList.remove("pulse");
-            void card.offsetWidth;
-            card.classList.add("pulse");
-          }
-          var nome = $("#f-nome");
-          if (nome) nome.focus({ preventScroll: true });
-        }, 650);
+        openFormGate(btn.getAttribute("data-service"), true);
+      });
+    });
+
+    $$("[data-open-form]").forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        openFormGate("", true);
       });
     });
 

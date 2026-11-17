@@ -262,13 +262,24 @@ body.menu-open { overflow: hidden; }
 .f-card .org { color: var(--muted); font-size: 14px; line-height: 1.6; }
 .f-card .meta { display: flex; align-items: center; gap: 9px; color: var(--faint); font-size: 13px; margin-top: auto; padding-top: 6px; }
 .f-card .meta .ic-sm { color: var(--accent); opacity: .8; }
+.f-card .icon-box { width: 40px; height: 40px; flex-basis: 40px; border-radius: 11px; }
 .f-card-accent {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, .035), rgba(255, 255, 255, 0) 60%),
-    radial-gradient(ellipse 90% 70% at 100% 0%, rgba(163, 255, 95, .07), transparent 55%),
-    var(--card);
-  border-color: rgba(163, 255, 95, .3);
   border-top: 3px solid transparent;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .035), rgba(255, 255, 255, 0) 60%) padding-box,
+    linear-gradient(rgba(163, 255, 95, .025), rgba(163, 255, 95, .025)) padding-box,
+    linear-gradient(90deg, rgba(163, 255, 95, .025) 1px, transparent 1px) padding-box,
+    radial-gradient(ellipse 90% 70% at 100% 0%, rgba(163, 255, 95, .07), transparent 55%) padding-box,
+    linear-gradient(var(--card), var(--card)) padding-box,
+    radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(163, 255, 95, var(--border-glow)), transparent 70%) border-box,
+    linear-gradient(rgba(163, 255, 95, .3), rgba(163, 255, 95, .3)) border-box;
+  background-size: auto, 28px 28px, 28px 28px, auto, auto, auto, auto;
+}
+.f-card-accent .badge-green {
+  background: rgba(163, 255, 95, .16);
+  border-color: rgba(163, 255, 95, .45);
+  box-shadow: 0 0 16px rgba(163, 255, 95, .12);
 }
 /* Borda superior de 3px em degradê verde (sobre a borda transparente) */
 .f-card-accent::before {
@@ -309,9 +320,10 @@ body.menu-open { overflow: hidden; }
   row-gap: 10px;
   padding: 20px;
 }
-.skills-tech .skill-card .icon-box { grid-column: 1; grid-row: 1; width: 36px; height: 36px; flex-basis: 36px; border-radius: 10px; }
-.skills-tech .skill-card h3 { grid-column: 2; grid-row: 1; font-size: 14.5px; }
-.skills-tech .skill-card p { grid-column: 1 / -1; grid-row: 2; font-size: 12.5px; line-height: 1.6; }
+.skills-tech .skill-card .icon-box { grid-column: 1; grid-row: 1; width: 32px; height: 32px; flex-basis: 32px; border-radius: 9px; }
+.skills-tech .skill-card h3 { grid-column: 2; grid-row: 1; font-size: 14px; transition: color .3s var(--ease); }
+.skills-tech .skill-card p { grid-column: 1 / -1; grid-row: 2; font-size: 12px; line-height: 1.6; }
+.skills-tech .skill-card:hover h3, .skills-tech .skill-card:focus-within h3 { color: var(--accent); }
 
 /* Numeração discreta (01, 02, 03...) nas áreas de atuação */
 .skills-areas > .skill-card { counter-increment: n; }
@@ -323,7 +335,18 @@ body.menu-open { overflow: hidden; }
   letter-spacing: .08em;
   color: rgba(163, 255, 95, .38);
   pointer-events: none;
+  transition: color .3s var(--ease);
 }
+.skills-areas > .skill-card h3::after {
+  content: ""; position: absolute; top: 41px; right: 22px;
+  width: 18px; height: 1px; background: var(--accent);
+  transform: scaleX(0); transform-origin: right center;
+  transition: transform .3s var(--ease);
+}
+.skills-areas > .skill-card:hover h3::before,
+.skills-areas > .skill-card:focus-within h3::before { color: var(--accent); }
+.skills-areas > .skill-card:hover h3::after,
+.skills-areas > .skill-card:focus-within h3::after { transform: scaleX(1); }
 
 /* ============================================================
    PROJETOS
@@ -331,11 +354,11 @@ body.menu-open { overflow: hidden; }
 .project-card {
   display: grid; grid-template-columns: minmax(0, 1.06fr) minmax(0, .94fr);
   overflow: hidden; border-radius: 20px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  transition: border-color .35s var(--ease), box-shadow .35s var(--ease);
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease), --border-glow .35s var(--ease);
 }
-.project-card:hover { border-color: var(--accent-line); box-shadow: 0 26px 60px rgba(0, 0, 0, .4); }
+.project-card:hover {
+  box-shadow: 0 26px 60px rgba(0, 0, 0, .4), 0 0 30px rgba(163, 255, 95, .07);
+}
 .project-media {
   position: relative;
   background:
@@ -398,9 +421,16 @@ body.menu-open { overflow: hidden; }
 .service-card { padding: 30px 28px; display: flex; flex-direction: column; gap: 14px; }
 .service-card h3 { font-family: var(--font-display); font-size: 17.5px; font-weight: 700; line-height: 1.4; padding-right: 42px; }
 .service-card p {
+  position: relative;
   font-size: 14px; color: var(--muted); line-height: 1.7; flex-grow: 1;
   border-bottom: 1px solid var(--border-soft);
   padding-bottom: 14px;
+}
+.service-card p::after {
+  content: ""; position: absolute; left: 0; bottom: -1px;
+  width: 26px; height: 2px; border-radius: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(163, 255, 95, .4);
 }
 
 /* Numeração discreta (01, 02, 03...) nos serviços */
@@ -423,7 +453,9 @@ body.menu-open { overflow: hidden; }
   padding-block: 4px;
   transition: color .3s var(--ease), text-decoration-color .3s var(--ease);
 }
-.service-cta:hover { color: #C2FF92; text-decoration: underline; text-underline-offset: 4px; }
+.service-cta:hover, .service-cta:focus-visible {
+  color: #C2FF92; text-decoration: underline; text-underline-offset: 4px;
+}
 .service-cta .service-cta-arrow { transition: transform .3s var(--ease); }
 .service-card:hover .service-cta .service-cta-arrow,
 .service-cta:focus-visible .service-cta-arrow { transform: translateX(5px); }
@@ -462,14 +494,26 @@ body.menu-open { overflow: hidden; }
    CTA
    ============================================================ */
 .cta-card {
+  --border-glow: 0;
   position: relative; overflow: hidden;
   border-radius: 24px;
-  border: 1px solid rgba(163, 255, 95, .28);
+  border: 1px solid transparent;
   background:
-    radial-gradient(ellipse 55% 75% at 50% 0%, rgba(163, 255, 95, .09), transparent 62%),
-    #0D141C;
+    linear-gradient(180deg, rgba(255, 255, 255, .035), rgba(255, 255, 255, 0) 60%) padding-box,
+    radial-gradient(ellipse 55% 75% at 50% 0%, rgba(163, 255, 95, .09), transparent 62%) padding-box,
+    linear-gradient(#0D141C, #0D141C) padding-box,
+    radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(163, 255, 95, var(--border-glow)), transparent 70%) border-box,
+    linear-gradient(rgba(163, 255, 95, .28), rgba(163, 255, 95, .28)) border-box;
   padding: clamp(52px, 8vw, 88px) clamp(24px, 6vw, 72px);
   text-align: center;
+}
+.cta-card::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  border-radius: inherit; pointer-events: none; z-index: 2;
+  background: linear-gradient(90deg,
+    transparent, rgba(255, 255, 255, .18) 20%, rgba(163, 255, 95, .35) 50%,
+    rgba(255, 255, 255, .14) 80%, transparent);
 }
 .cta-card .cta-grid-lines {
   position: absolute; inset: 0;
@@ -499,6 +543,51 @@ body.menu-open { overflow: hidden; }
 .channels { margin-top: 30px; display: grid; gap: 12px; }
 .channels .btn { justify-content: flex-start; }
 .contact-note { margin-top: 18px; font-size: 13px; color: var(--faint); line-height: 1.7; }
+.contact-note a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Formulário protegido por botão ---------- */
+.form-gate { padding: 0; overflow: hidden; }
+.form-gate::before { z-index: 2; }
+.form-gate-trigger {
+  display: flex; align-items: center; gap: 18px;
+  padding: clamp(26px, 3.5vw, 34px);
+  cursor: pointer;
+  list-style: none;
+  transition: background-color .35s var(--ease);
+}
+.form-gate-trigger::-webkit-details-marker { display: none; }
+.form-gate-trigger::marker { content: ""; }
+.form-gate-trigger:hover { background: rgba(163, 255, 95, .035); }
+.form-gate-trigger .icon-box { width: 48px; height: 48px; flex-basis: 48px; border-radius: 13px; }
+.form-gate-copy { display: grid; gap: 5px; flex: 1; min-width: 0; }
+.form-gate-copy strong { font-family: var(--font-display); font-size: 18px; line-height: 1.3; }
+.form-gate-copy small { color: var(--muted); font-size: 13px; line-height: 1.6; }
+.form-gate-action {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: var(--accent); font-weight: 600; font-size: 14px;
+  padding: 12px 16px; border-radius: 12px;
+  border: 1px solid rgba(163, 255, 95, .28);
+  background: var(--accent-soft);
+  white-space: nowrap;
+  transition: background-color .3s var(--ease), border-color .3s var(--ease);
+}
+.form-gate-trigger:hover .form-gate-action {
+  background: rgba(163, 255, 95, .16);
+  border-color: rgba(163, 255, 95, .45);
+}
+.gate-chevron {
+  width: 9px; height: 9px; margin-top: -3px;
+  border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform .3s var(--ease), margin .3s var(--ease);
+}
+.form-gate[open] .gate-chevron { transform: rotate(225deg); margin-top: 3px; }
+.form-gate[open] .form-gate-trigger { border-bottom: 1px solid var(--border-soft); }
+.form-gate[open] .form-card { animation: formIn .45s var(--ease) both; }
+@keyframes formIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
 
 .form-card { padding: clamp(26px, 3.5vw, 40px); }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }

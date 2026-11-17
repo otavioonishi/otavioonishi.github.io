@@ -92,7 +92,7 @@
         <a href="#contato">Contato</a>
       </nav>
       <div class="header-actions">
-        <a href="#contato" class="btn btn-primary btn-sm header-cta">
+        <a href="#contato" class="btn btn-primary btn-sm header-cta" data-open-form>
           <span data-icon="send" class="ic-sm"></span>
           Solicitar orçamento
         </a>
@@ -111,7 +111,7 @@
         <a href="#servicos">Serviços<span data-icon="arrow-right" class="ic-sm"></span></a>
         <a href="#contato">Contato<span data-icon="arrow-right" class="ic-sm"></span></a>
       </nav>
-      <a href="#contato" class="btn btn-primary btn-block mobile-cta">
+      <a href="#contato" class="btn btn-primary btn-block mobile-cta" data-open-form>
         <span data-icon="send" class="ic-sm"></span>
         Solicitar orçamento
       </a>
@@ -152,7 +152,7 @@
               Conhecer meus projetos
               <span data-icon="arrow-right" class="ic-sm"></span>
             </a>
-            <a href="#contato" class="btn btn-ghost">
+            <a href="#contato" class="btn btn-ghost" data-open-form>
               <span data-icon="message-circle" class="ic-sm"></span>
               Solicitar um orçamento
             </a>
@@ -382,7 +382,7 @@
                Para adicionar novos projetos futuramente, duplique este
                bloco <article> abaixo e atualize os textos, a imagem e o link.
                ============================================================ -->
-          <article class="project-card" data-reveal>
+          <article class="card lift project-card" data-reveal>
             <div class="project-media">
               <div class="browser">
                 <div class="browser-bar" aria-hidden="true">
@@ -416,7 +416,7 @@
           </article>
           <!-- ============================================================
                MODELO PARA NOVOS PROJETOS (duplicar e preencher):
-               <article class="project-card" data-reveal>
+               <article class="card lift project-card" data-reveal>
                  <div class="project-media"> … mesma estrutura acima … </div>
                  <div class="project-info">
                    <span class="badge badge-green">…</span>
@@ -523,13 +523,13 @@
     <!-- ==================== CHAMADA PARA AÇÃO ==================== -->
     <section class="section" id="cta">
       <div class="container">
-        <div class="cta-card" data-reveal>
+        <div class="lift cta-card" data-reveal>
           <div class="cta-grid-lines" aria-hidden="true"></div>
           <div class="cta-inner">
             <h2>Tem uma ideia? Vamos transformar <span class="ac">em realidade.</span></h2>
             <p>Se você precisa de um site, sistema ou solução tecnológica, estou pronto para conhecer seu projeto.</p>
             <div class="cta-actions">
-              <a href="#contato" class="btn btn-primary">
+              <a href="#contato" class="btn btn-primary" data-open-form>
                 <span data-icon="send" class="ic-sm"></span>
                 Solicitar um orçamento
               </a>
@@ -563,66 +563,82 @@
                 Enviar um e-mail
               </button>
             </div>
-            <p class="contact-note">Canais diretos para conversarmos sobre o seu projeto — sem compromisso.</p>
+            <p class="contact-note">Canais diretos para conversarmos sobre o seu projeto — sem compromisso. Seus dados são protegidos conforme a <a href="privacidade.html">política de privacidade</a>.</p>
           </div>
 
-          <form class="card form-card" id="form-card" novalidate data-reveal>
-            <div class="form-grid">
-              <div class="field">
-                <label for="f-nome">Nome completo <span class="req" aria-hidden="true">*</span></label>
-                <input type="text" id="f-nome" name="nome" placeholder="Seu nome completo" autocomplete="name" aria-describedby="err-nome" required />
-                <p class="err" id="err-nome">Informe seu nome completo.</p>
-              </div>
+          <details class="card form-gate" id="form-gate" data-reveal>
+            <summary class="form-gate-trigger">
+              <span class="icon-box"><span data-icon="file-text" class="ic-lg"></span></span>
+              <span class="form-gate-copy">
+                <strong>Vamos falar do seu projeto?</strong>
+                <small>Conte os detalhes e eu entro em contato. Seus dados ficam entre nós.</small>
+              </span>
+              <span class="form-gate-action">
+                <span>Preencher solicitação</span>
+                <span class="gate-chevron" aria-hidden="true"></span>
+              </span>
+            </summary>
 
-              <div class="field">
-                <label for="f-email">E-mail <span class="req" aria-hidden="true">*</span></label>
-                <input type="email" id="f-email" name="email" placeholder="voce@email.com" autocomplete="email" aria-describedby="err-email" required />
-                <p class="err" id="err-email">Informe um e-mail válido.</p>
-              </div>
+            <div class="form-body">
+              <form class="form-card" id="form-card" novalidate>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="f-nome">Nome completo <span class="req" aria-hidden="true">*</span></label>
+                    <input type="text" id="f-nome" name="nome" placeholder="Seu nome completo" autocomplete="name" aria-describedby="err-nome" required />
+                    <p class="err" id="err-nome">Informe seu nome completo.</p>
+                  </div>
 
-              <div class="field">
-                <label for="f-zap">WhatsApp <span class="req" aria-hidden="true">*</span></label>
-                <input type="tel" id="f-zap" name="whatsapp" placeholder="(11) 98765-4321" inputmode="tel" autocomplete="tel" aria-describedby="err-zap" required />
-                <p class="err" id="err-zap">Informe um WhatsApp válido com DDD.</p>
-              </div>
+                  <div class="field">
+                    <label for="f-email">E-mail <span class="req" aria-hidden="true">*</span></label>
+                    <input type="email" id="f-email" name="email" placeholder="voce@email.com" autocomplete="email" aria-describedby="err-email" required />
+                    <p class="err" id="err-email">Informe um e-mail válido.</p>
+                  </div>
 
-              <div class="field">
-                <label for="f-tipo">Tipo de serviço desejado <span class="req" aria-hidden="true">*</span></label>
-                <select id="f-tipo" name="tipo" aria-describedby="err-tipo" required>
-                  <option value="" selected disabled>Selecione uma opção</option>
-                  <option value="site-profissional">Site profissional</option>
-                  <option value="landing-page">Landing page</option>
-                  <option value="site-institucional">Site institucional</option>
-                  <option value="sistema-personalizado">Sistema personalizado</option>
-                  <option value="dashboard">Dashboard</option>
-                  <option value="automacao">Automação</option>
-                  <option value="outro">Outro</option>
-                </select>
-                <p class="err" id="err-tipo">Selecione o tipo de serviço.</p>
-              </div>
+                  <div class="field">
+                    <label for="f-zap">WhatsApp <span class="req" aria-hidden="true">*</span></label>
+                    <input type="tel" id="f-zap" name="whatsapp" placeholder="(11) 98765-4321" inputmode="tel" autocomplete="tel" aria-describedby="err-zap" required />
+                    <p class="err" id="err-zap">Informe um WhatsApp válido com DDD.</p>
+                  </div>
 
-              <div class="field field-full">
-                <label for="f-desc">Descrição do projeto <span class="req" aria-hidden="true">*</span></label>
-                <textarea id="f-desc" name="descricao" rows="5" maxlength="1500" placeholder="Conte sobre o projeto: objetivo, o que precisa ter, referências que goste…" aria-describedby="err-desc" required></textarea>
-                <p class="err" id="err-desc">Descreva brevemente o projeto (mínimo de 10 caracteres).</p>
-              </div>
+                  <div class="field">
+                    <label for="f-tipo">Tipo de serviço desejado <span class="req" aria-hidden="true">*</span></label>
+                    <select id="f-tipo" name="tipo" aria-describedby="err-tipo" required>
+                      <option value="" selected disabled>Selecione uma opção</option>
+                      <option value="site-profissional">Site profissional</option>
+                      <option value="landing-page">Landing page</option>
+                      <option value="site-institucional">Site institucional</option>
+                      <option value="sistema-personalizado">Sistema personalizado</option>
+                      <option value="dashboard">Dashboard</option>
+                      <option value="automacao">Automação</option>
+                      <option value="outro">Outro</option>
+                    </select>
+                    <p class="err" id="err-tipo">Selecione o tipo de serviço.</p>
+                  </div>
 
-              <div class="field field-full">
-                <label for="f-prazo">Prazo desejado <span class="opt">(opcional)</span></label>
-                <input type="text" id="f-prazo" name="prazo" maxlength="120" placeholder="Ex.: até o final do mês, em 3 semanas, flexível…" />
-              </div>
+                  <div class="field field-full">
+                    <label for="f-desc">Descrição do projeto <span class="req" aria-hidden="true">*</span></label>
+                    <textarea id="f-desc" name="descricao" rows="5" maxlength="1500" placeholder="Conte sobre o projeto: objetivo, o que precisa ter, referências que goste…" aria-describedby="err-desc" required></textarea>
+                    <p class="err" id="err-desc">Descreva brevemente o projeto (mínimo de 10 caracteres).</p>
+                  </div>
+
+                  <div class="field field-full">
+                    <label for="f-prazo">Prazo desejado <span class="opt">(opcional)</span></label>
+                    <input type="text" id="f-prazo" name="prazo" maxlength="120" placeholder="Ex.: até o final do mês, em 3 semanas, flexível…" />
+                  </div>
+                </div>
+
+                <div class="form-submit">
+                  <button type="submit" class="btn btn-primary">
+                    <span data-icon="send" class="ic-sm"></span>
+                    Enviar solicitação
+                  </button>
+                  <p class="form-hint">Seus dados são usados apenas para responder à sua solicitação. <a href="privacidade.html">Política de privacidade</a>.</p>
+                </div>
+
+                <div class="form-alert" id="form-alert" role="alert"></div>
+              </form>
             </div>
-
-            <div class="form-submit">
-              <button type="submit" class="btn btn-primary">
-                <span data-icon="send" class="ic-sm"></span>
-                Enviar solicitação
-              </button>
-              <p class="form-hint">Seus dados são usados apenas para responder à sua solicitação. <a href="privacidade.html">Política de privacidade</a>.</p>
-            </div>
-
-            <div class="form-alert" id="form-alert" role="alert"></div>
-          </form>
+          </details>
         </div>
       </div>
     </section>

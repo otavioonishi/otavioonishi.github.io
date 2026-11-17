@@ -81,4 +81,5 @@
   .lift::after { display: none !important; }
   .lift:hover .icon-box, .lift:focus-within .icon-box { transform: none !important; box-shadow: none !important; }
   .service-card:hover .service-cta .service-cta-arrow { transform: none !important; }
+  .form-gate[open] .form-card { animation: none !important; }
 }

@@ -81,6 +81,11 @@ todos os caminhos relativos `assets/...` — ou publique na raiz do domínio.
 
 ## Formulário
 
+O formulário fica recolhido em um `<details id="form-gate">`: o visitante precisa clicar
+em **Preencher solicitação** (ou em qualquer CTA “Solicitar orçamento”) para abri-lo.
+Os CTAs dos serviços já pré-selecionam o tipo de serviço e levam o foco ao primeiro campo.
+Campos fechados não ficam expostos nem acessíveis por Tab.
+
 Sem `formEndpoint` configurado, o envio abre o WhatsApp com a mensagem já montada
 (ou o aplicativo de e-mail, se o WhatsApp não estiver configurado). Nenhum dado é
 armazenado no site. Se o navegador bloquear a nova aba, a solicitação é aberta na
