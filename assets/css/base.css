@@ -1,0 +1,196 @@
+/* ============================================================
+   BASE — tokens, reset, tipografia, utilitários, botões e componentes
+   Otávio Onishi — portfólio
+   ============================================================ */
+
+/* ============================================================
+   DESIGN SYSTEM — OTÁVIO ONISHI
+   Dark tecnológico • verde neon • tipografia Inter/Manrope
+   ============================================================ */
+:root {
+  --bg: #090D12;
+  --bg-2: #111820;
+  --card: #151D26;
+  --card-deep: #0C1319;
+  --editor-bg: #0B131B;
+
+  --accent: #A3FF5F;
+  --accent-soft: rgba(163, 255, 95, .10);
+  --accent-line: rgba(163, 255, 95, .35);
+  --accent-glow: rgba(163, 255, 95, .22);
+
+  --text: #F5F7FA;
+  --muted: #929EAA;
+  --faint: #7C8895;
+
+  --border: #26313D;
+  --border-soft: rgba(38, 49, 61, .55);
+
+  --error: #FF7A7A;
+  --error-soft: rgba(255, 122, 122, .10);
+  --warn: #FFC46B;
+  --warn-soft: rgba(255, 196, 107, .08);
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-display: 'Manrope', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  --radius: 18px;
+  --header-h: 72px;
+  color-scheme: dark;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 20px);
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  font-size: 16px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+/* Textura sutil de ruído sobre o fundo */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+main, header, footer { position: relative; z-index: 1; }
+img, svg { display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+ul, ol { list-style: none; }
+
+::selection { background: rgba(163, 255, 95, .28); color: #F5F7FA; }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #26313D; border-radius: 8px; border: 2px solid var(--bg); }
+::-webkit-scrollbar-thumb:hover { background: #33414f; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+.skip-link {
+  position: absolute;
+  left: 16px; top: -48px;
+  z-index: 300;
+  background: var(--accent); color: #0A0F14;
+  font-weight: 600; font-size: 14px;
+  padding: 10px 16px; border-radius: 10px;
+  transition: top .25s var(--ease);
+}
+.skip-link:focus { top: 12px; }
+
+/* ---------- Utilitários de layout ---------- */
+.container { width: 100%; max-width: 1160px; margin-inline: auto; padding-inline: 24px; }
+.section { padding-block: clamp(76px, 9vw, 122px); position: relative; }
+.section-alt { background: var(--bg-2); border-block: 1px solid var(--border-soft); }
+.section-head { max-width: 760px; margin-bottom: clamp(40px, 6vw, 64px); }
+.section-head.center { margin-inline: auto; text-align: center; }
+
+.eyebrow {
+  display: inline-flex; align-items: center;
+  font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.title {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(1.85rem, 4vw, 2.65rem);
+  line-height: 1.14; letter-spacing: -.02em;
+  margin-bottom: 18px;
+}
+.title .ac { color: var(--accent); }
+.lead { color: var(--muted); font-size: clamp(15.5px, 1.6vw, 17.5px); line-height: 1.75; }
+
+/* ---------- Botões ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-weight: 600; font-size: 15px; line-height: 1;
+  border: 1px solid transparent;
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease),
+              background-color .3s var(--ease), border-color .3s var(--ease), color .3s var(--ease);
+  white-space: nowrap;
+}
+.btn:active { transform: translateY(0) scale(.99); }
+.btn-primary {
+  background: var(--accent); color: #0A0F14;
+  box-shadow: 0 0 0 0 rgba(163, 255, 95, 0);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px var(--accent-glow);
+  background: #B6FF7F;
+}
+.btn-ghost { border-color: var(--border); color: var(--text); background: rgba(21, 29, 38, .45); }
+.btn-ghost:hover {
+  border-color: var(--accent-line);
+  color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-2px);
+}
+.btn-sm { padding: 11px 18px; font-size: 14px; border-radius: 10px; }
+.btn-block { width: 100%; }
+.btn[aria-disabled="true"] { opacity: .55; cursor: not-allowed; }
+.btn[aria-disabled="true"]:hover { transform: none; box-shadow: none; }
+
+/* ---------- Cards, chips e ícones ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.lift { transition: transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease); }
+.lift:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-line);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, .38);
+}
+.icon-box {
+  width: 44px; height: 44px; flex: 0 0 44px;
+  display: grid; place-items: center;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(163, 255, 95, .22);
+  color: var(--accent);
+}
+.chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 15px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(21, 29, 38, .7);
+  font-size: 13.5px; font-weight: 500; color: var(--muted);
+  transition: border-color .3s var(--ease), color .3s var(--ease), transform .3s var(--ease);
+}
+.chip:hover { border-color: var(--accent-line); color: var(--text); transform: translateY(-2px); }
+.chip [data-icon], .chip .ic { color: var(--accent); }
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  letter-spacing: .12em; text-transform: uppercase;
+}
+.badge-green { color: var(--accent); background: var(--accent-soft); border: 1px solid rgba(163, 255, 95, .3); }
+.badge-neutral { color: var(--muted); background: rgba(146, 158, 170, .07); border: 1px solid var(--border); }
+
+.ic { width: 18px; height: 18px; flex-shrink: 0; }
+.ic-sm { width: 15px; height: 15px; flex-shrink: 0; }
+.ic-xs { width: 12px; height: 12px; flex-shrink: 0; }
+.ic-lg { width: 22px; height: 22px; flex-shrink: 0; }

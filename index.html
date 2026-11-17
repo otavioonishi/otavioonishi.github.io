@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== SEO básico ===== -->
+  <title>Otávio Onishi | Desenvolvedor de Sistemas</title>
+  <meta name="description" content="Desenvolvedor de Sistemas em formação pela ETEC. Crio sites, landing pages, sistemas e dashboards personalizados. Solicite um orçamento." />
+  <meta name="author" content="Otávio Onishi" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#090D12" />
+
+  <link rel="canonical" href="https://otavioonishi.github.io/" />
+
+  <!-- ===== Open Graph / compartilhamento ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Otávio Onishi" />
+  <meta property="og:url" content="https://otavioonishi.github.io/" />
+  <meta property="og:title" content="Otávio Onishi — Desenvolvedor de Sistemas" />
+  <meta property="og:description" content="Transformando ideias em soluções digitais. Sites, sistemas personalizados, dashboards e automação." />
+  <meta property="og:image" content="https://otavioonishi.github.io/assets/img/og-cover.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Otávio Onishi — Desenvolvedor de Sistemas" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Otávio Onishi — Desenvolvedor de Sistemas" />
+  <meta name="twitter:description" content="Transformando ideias em soluções digitais. Sites, sistemas personalizados, dashboards e automação." />
+  <meta name="twitter:image" content="https://otavioonishi.github.io/assets/img/og-cover.jpg" />
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+
+  <!-- Dados estruturados (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://otavioonishi.github.io/#pessoa",
+        "name": "Otávio Onishi",
+        "jobTitle": "Desenvolvedor de Sistemas",
+        "url": "https://otavioonishi.github.io/",
+        "image": "https://otavioonishi.github.io/assets/img/og-cover.jpg",
+        "description": "Técnico em Desenvolvimento de Sistemas em formação pela ETEC (Centro Paula Souza). Desenvolve sites, aplicações e sistemas personalizados.",
+        "knowsAbout": ["HTML", "CSS", "Java", "SQL", "Inteligência Artificial", "Desenvolvimento Web", "Banco de Dados", "Integração de APIs"],
+        "alumniOf": { "@type": "EducationalOrganization", "name": "ETEC — Centro Paula Souza" },
+        "sameAs": ["https://github.com/otavioonishi", "https://instagram.com/onishi.dev"]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://otavioonishi.github.io/#servicos",
+        "name": "Otávio Onishi — Desenvolvimento de Sistemas",
+        "url": "https://otavioonishi.github.io/",
+        "image": "https://otavioonishi.github.io/assets/img/og-cover.jpg",
+        "description": "Criação de sites profissionais, landing pages, sistemas personalizados, dashboards administrativos e automação de processos.",
+        "areaServed": { "@type": "Country", "name": "Brasil" },
+        "priceRange": "$$",
+        "founder": { "@id": "https://otavioonishi.github.io/#pessoa" },
+        "knowsAbout": ["Desenvolvimento Web", "Sistemas Personalizados", "Dashboards", "Automação de Processos", "Integração com APIs"]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Tipografia: Inter (corpo) + Manrope (títulos) + JetBrains Mono (código) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+  <!-- ===== Estilos (ordem importa) ===== -->
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/sections.css" />
+  <link rel="stylesheet" href="assets/css/ui.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+<body>
+  <a class="skip-link" href="#inicio">Pular para o conteúdo</a>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="#inicio" class="logo" aria-label="Otávio Onishi — voltar ao início">OTÁVIO ONISHI<span class="cursor" aria-hidden="true">_</span></a>
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#inicio" class="active">Início</a>
+        <a href="#sobre">Sobre mim</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#contato" class="btn btn-primary btn-sm header-cta">
+          <span data-icon="send" class="ic-sm"></span>
+          Solicitar orçamento
+        </a>
+        <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menu de navegação">
+          <span data-icon="menu" class="ic-lg ic-menu"></span>
+          <span data-icon="x" class="ic-lg ic-close"></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" inert>
+      <nav aria-label="Navegação móvel">
+        <a href="#inicio">Início<span data-icon="arrow-right" class="ic-sm"></span></a>
+        <a href="#sobre">Sobre mim<span data-icon="arrow-right" class="ic-sm"></span></a>
+        <a href="#habilidades">Habilidades<span data-icon="arrow-right" class="ic-sm"></span></a>
+        <a href="#projetos">Projetos<span data-icon="arrow-right" class="ic-sm"></span></a>
+        <a href="#servicos">Serviços<span data-icon="arrow-right" class="ic-sm"></span></a>
+        <a href="#contato">Contato<span data-icon="arrow-right" class="ic-sm"></span></a>
+      </nav>
+      <a href="#contato" class="btn btn-primary btn-block mobile-cta">
+        <span data-icon="send" class="ic-sm"></span>
+        Solicitar orçamento
+      </a>
+    </div>
+  </header>
+
+
+  <main id="conteudo">
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="inicio" aria-label="Apresentação">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-grid-lines"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-glow-2"></div>
+      </div>
+
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="hero-eyebrow" data-hero-anim style="animation-delay:.05s">
+            <b>Desenvolvedor de Sistemas</b><span class="sep" aria-hidden="true">•</span>
+            <span>Tecnologia</span><span class="sep" aria-hidden="true">•</span>
+            <span>Inovação</span>
+          </p>
+
+          <h1 class="hero-title" data-hero-anim style="animation-delay:.14s">
+            Transformando ideias em
+            <span class="accent">soluções digitais<svg class="squiggle" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true" fill="none"><path d="M2 9 Q 30 2, 62 7 T 124 6 T 198 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>.
+          </h1>
+
+          <p class="hero-desc" data-hero-anim style="animation-delay:.23s">
+            Sou <strong>Otávio Onishi</strong>, Técnico em Desenvolvimento de Sistemas em formação.
+            Desenvolvo sites, aplicações e sistemas personalizados, utilizando tecnologia e
+            criatividade para transformar necessidades em soluções reais.
+          </p>
+
+          <div class="hero-actions" data-hero-anim style="animation-delay:.32s">
+            <a href="#projetos" class="btn btn-primary">
+              Conhecer meus projetos
+              <span data-icon="arrow-right" class="ic-sm"></span>
+            </a>
+            <a href="#contato" class="btn btn-ghost">
+              <span data-icon="message-circle" class="ic-sm"></span>
+              Solicitar um orçamento
+            </a>
+          </div>
+
+          <ul class="hero-chips" aria-label="Áreas de atuação" data-hero-anim style="animation-delay:.42s">
+            <li class="chip"><span data-icon="globe" class="ic-sm"></span>Desenvolvimento Web</li>
+            <li class="chip"><span data-icon="workflow" class="ic-sm"></span>Sistemas personalizados</li>
+            <li class="chip"><span data-icon="brain-circuit" class="ic-sm"></span>Inteligência Artificial</li>
+            <li class="chip"><span data-icon="sparkles" class="ic-sm"></span>Soluções digitais</li>
+          </ul>
+        </div>
+
+        <div class="editor-wrap" data-hero-anim style="animation-delay:.3s">
+          <div class="editor-glow" aria-hidden="true"></div>
+          <div class="editor" role="img" aria-label="Janela de código representando o perfil profissional de Otávio Onishi">
+            <div class="editor-bar" aria-hidden="true">
+              <div class="editor-dots"><span></span><span></span><span></span></div>
+              <span class="editor-tab"><span data-icon="code-xml" class="ic-xs"></span>otavio.config.ts</span>
+            </div>
+            <div class="editor-body" aria-hidden="true">
+              <pre><code><span class="code-line"><span class="code-ln">1</span><span><span class="tk-com">// quem está por trás do código</span></span></span>
+<span class="code-line"><span class="code-ln">2</span><span><span class="tk-kw">const</span> <span class="tk-var">desenvolvedor</span> <span class="tk-p">=</span> <span class="tk-p">{</span></span></span>
+<span class="code-line"><span class="code-ln">3</span><span>  <span class="tk-prop">nome</span><span class="tk-p">:</span> <span class="tk-str">"Otávio Onishi"</span><span class="tk-p">,</span></span></span>
+<span class="code-line"><span class="code-ln">4</span><span>  <span class="tk-prop">titulo</span><span class="tk-p">:</span> <span class="tk-str">"Desenvolvedor de Sistemas"</span><span class="tk-p">,</span></span></span>
+<span class="code-line"><span class="code-ln">5</span><span>  <span class="tk-prop">formacao</span><span class="tk-p">:</span> <span class="tk-str">"Técnico em Desenv. de Sistemas — ETEC"</span><span class="tk-p">,</span></span></span>
+<span class="code-line"><span class="code-ln">6</span><span>  <span class="tk-prop">stack</span><span class="tk-p">:</span> <span class="tk-p">[</span><span class="tk-str">"HTML"</span><span class="tk-p">,</span> <span class="tk-str">"CSS"</span><span class="tk-p">,</span> <span class="tk-str">"Java"</span><span class="tk-p">,</span> <span class="tk-str">"SQL"</span><span class="tk-p">,</span> <span class="tk-str">"IA"</span><span class="tk-p">],</span></span></span>
+<span class="code-line"><span class="code-ln">7</span><span>  <span class="tk-prop">foco</span><span class="tk-p">:</span> <span class="tk-p">[</span><span class="tk-str">"web"</span><span class="tk-p">,</span> <span class="tk-str">"sistemas"</span><span class="tk-p">,</span> <span class="tk-str">"automação"</span><span class="tk-p">],</span></span></span>
+<span class="code-line"><span class="code-ln">8</span><span>  <span class="tk-prop">missao</span><span class="tk-p">:</span> <span class="tk-str">"transformar ideias em soluções digitais"</span><span class="tk-p">,</span></span></span>
+<span class="code-line"><span class="code-ln">9</span><span>  <span class="tk-prop">disponivelParaProjetos</span><span class="tk-p">:</span> <span class="tk-bool">true</span><span class="tk-p">,</span></span></span>
+<span class="code-line"><span class="code-ln">10</span><span><span class="tk-p">};</span></span></span></code></pre>
+            </div>
+            <div class="editor-foot">
+              <span class="status"><span class="status-dot" aria-hidden="true"></span>disponível para novos projetos</span>
+              <span class="meta">TypeScript • UTF-8</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FAIXA DE ÁREAS ==================== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span class="marquee-item">Desenvolvimento Web</span>
+          <span class="marquee-item">Sistemas Personalizados</span>
+          <span class="marquee-item">Inteligência Artificial</span>
+          <span class="marquee-item">Soluções Digitais</span>
+          <span class="marquee-item">Banco de Dados</span>
+          <span class="marquee-item">Integração com APIs</span>
+          <span class="marquee-item">Automação de Processos</span>
+          <span class="marquee-item">Landing Pages</span>
+        </div>
+        <div class="marquee-group">
+          <span class="marquee-item">Desenvolvimento Web</span>
+          <span class="marquee-item">Sistemas Personalizados</span>
+          <span class="marquee-item">Inteligência Artificial</span>
+          <span class="marquee-item">Soluções Digitais</span>
+          <span class="marquee-item">Banco de Dados</span>
+          <span class="marquee-item">Integração com APIs</span>
+          <span class="marquee-item">Automação de Processos</span>
+          <span class="marquee-item">Landing Pages</span>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ==================== SOBRE MIM ==================== -->
+    <section class="section" id="sobre">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">// sobre mim</span>
+          <h2 class="title">Um pouco sobre quem está <span class="ac">por trás do código.</span></h2>
+        </div>
+
+        <div class="about-grid">
+          <!-- Foto profissional: coloque o arquivo em assets/img/foto-perfil.jpg
+               (proporção 4:5, ~800px de largura). Enquanto ele não existir,
+               o espaço reservado aparece no lugar. -->
+          <div class="photo-frame" data-reveal>
+            <span class="corner tl" aria-hidden="true"></span>
+            <span class="corner tr" aria-hidden="true"></span>
+            <span class="corner bl" aria-hidden="true"></span>
+            <span class="corner br" aria-hidden="true"></span>
+
+            <img class="photo-img" id="profile-photo" src="assets/img/foto-perfil.jpg"
+                 alt="Retrato de Otávio Onishi" width="800" height="1000"
+                 loading="lazy" decoding="async" />
+
+            <div class="photo-inner" id="photo-fallback" aria-hidden="true">
+              <div class="icon-box"><span data-icon="user-round" class="ic-lg"></span></div>
+              <h3>Fotografia profissional</h3>
+              <p>Adicione a foto em <code>assets/img/foto-perfil.jpg</code> (proporção 4:5).</p>
+            </div>
+
+            <span class="photo-tag"><span data-icon="image" class="ic-xs"></span>foto-perfil.jpg</span>
+          </div>
+
+          <div class="about-text" data-reveal>
+            <p class="lede">Meu nome é <strong>Otávio Onishi</strong>, tenho 19 anos e sou apaixonado por tecnologia, desenvolvimento e criação de soluções digitais.</p>
+            <p>Atualmente estou concluindo minha formação técnica em <strong>Desenvolvimento de Sistemas pela ETEC</strong>, instituição do Centro Paula Souza, com previsão de conclusão em <strong>dezembro de 2026</strong>.</p>
+            <p>Durante minha trajetória, desenvolvi conhecimentos em programação, banco de dados, desenvolvimento web, integração de APIs e inteligência artificial aplicada à tecnologia.</p>
+            <p>Também tive experiência profissional como <strong>auxiliar de manutenção</strong>, onde desenvolvi conhecimentos práticos em elétrica, manutenção e resolução de problemas.</p>
+            <div class="about-quote">"Acredito que a tecnologia deve ir além do código: ela precisa resolver problemas, facilitar processos e criar oportunidades."</div>
+          </div>
+        </div>
+
+        <ol class="timeline" aria-label="Linha do tempo da trajetória" data-reveal-group>
+          <li class="t-item">
+            <h3>Formação no Ensino Médio</h3>
+            <p>Concluída</p>
+          </li>
+          <li class="t-item">
+            <h3>Experiência profissional</h3>
+            <p>Auxiliar de Manutenção</p>
+          </li>
+          <li class="t-item t-now">
+            <h3>Formação Técnica em Desenvolvimento de Sistemas</h3>
+            <p>ETEC — Centro Paula Souza</p>
+          </li>
+          <li class="t-item">
+            <h3>Conclusão prevista</h3>
+            <p>Dezembro de 2026</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==================== FORMAÇÃO E CONHECIMENTOS ==================== -->
+    <section class="section section-alt" id="formacao">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">// formação</span>
+          <h2 class="title">Minha formação <span class="ac">e conhecimentos.</span></h2>
+        </div>
+
+        <div class="formation-grid" data-reveal-group>
+          <article class="card lift f-card f-card-accent">
+            <div class="icon-box"><span data-icon="graduation-cap" class="ic-lg"></span></div>
+            <span class="badge badge-green"><span class="status-dot" aria-hidden="true"></span>Em formação</span>
+            <h3>Técnico em Desenvolvimento de Sistemas</h3>
+            <p class="org">ETEC — Centro Paula Souza</p>
+            <p class="meta"><span data-icon="calendar" class="ic-sm"></span>Conclusão prevista: Dezembro de 2026</p>
+          </article>
+
+          <article class="card lift f-card">
+            <div class="icon-box"><span data-icon="school" class="ic-lg"></span></div>
+            <span class="badge badge-neutral">Concluído</span>
+            <h3>Ensino Médio</h3>
+            <p class="org">Formação básica concluída.</p>
+          </article>
+
+          <article class="card lift f-card">
+            <div class="icon-box"><span data-icon="wrench" class="ic-lg"></span></div>
+            <span class="badge badge-neutral">Experiência prática</span>
+            <h3>Experiência complementar</h3>
+            <p class="org">Auxiliar de Manutenção — conhecimentos práticos em elétrica e manutenção.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== HABILIDADES TÉCNICAS ==================== -->
+    <section class="section" id="habilidades">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">// habilidades</span>
+          <h2 class="title">Minhas <span class="ac">habilidades técnicas.</span></h2>
+          <p class="lead">Tecnologias e áreas de atuação que fazem parte do meu dia a dia de estudo e de desenvolvimento.</p>
+        </div>
+
+        <h3 class="skills-sub" data-reveal><span>01</span>Tecnologias</h3>
+        <div class="skills-tech" data-reveal-group>
+          <article class="card lift skill-card">
+            <div class="icon-box"><span data-icon="code" class="ic-lg"></span></div>
+            <h3>HTML</h3>
+            <p>Estruturação semântica de páginas e conteúdo na web.</p>
+          </article>
+          <article class="card lift skill-card">
+            <div class="icon-box"><span data-icon="palette" class="ic-lg"></span></div>
+            <h3>CSS</h3>
+            <p>Estilização, layouts responsivos e identidade visual das interfaces.</p>
+          </article>
+          <article class="card lift skill-card">
+            <div class="icon-box"><span data-icon="coffee" class="ic-lg"></span></div>
+            <h3>Java</h3>
+            <p>Lógica de programação e desenvolvimento no lado do servidor.</p>
+          </article>
+          <article class="card lift skill-card">
+            <div class="icon-box"><span data-icon="database" class="ic-lg"></span></div>
+            <h3>SQL</h3>
+            <p>Modelagem e consulta de dados em bancos relacionais.</p>
+          </article>
+          <article class="card lift skill-card">
+            <div class="icon-box"><span data-icon="brain-circuit" class="ic-lg"></span></div>
+            <h3>Inteligência Artificial</h3>
+            <p>Uso de IA como ferramenta aplicada ao desenvolvimento de soluções.</p>
+          </article>
+        </div>
+
+        <h3 class="skills-sub" data-reveal><span>02</span>Áreas de atuação</h3>
+        <div class="skills-areas" data-reveal-group>
+          <article class="card lift skill-card">
+            <div class="icon-box"><span data-icon="layout-template" class="ic-lg"></span></div>
+            <h3>Desenvolvimento Front-end</h3>
+            <p>Interfaces web modernas, responsivas e centradas na experiência de quem usa.</p>
+          </article>
+          <article class="card lift skill-card">
+            <div class="icon-box"><span data-icon="server" class="ic-lg"></span></div>
+            <h3>Desenvolvimento Back-end</h3>
+            <p>Regras de negócio, lógica e integrações no lado do servidor.</p>
+          </article>
+          <article class="card lift skill-card">
+            <div class="icon-box"><span data-icon="database" class="ic-lg"></span></div>
+            <h3>Banco de Dados</h3>
+            <p>Modelagem, criação e consulta de bases de dados relacionais.</p>
+          </article>
+          <article class="card lift skill-card">
+            <div class="icon-box"><span data-icon="workflow" class="ic-lg"></span></div>
+            <h3>Desenvolvimento de Sistemas</h3>
+            <p>Soluções completas, adaptadas à realidade e às necessidades de cada negócio.</p>
+          </article>
+          <article class="card lift skill-card">
+            <div class="icon-box"><span data-icon="plug-zap" class="ic-lg"></span></div>
+            <h3>Integração com APIs</h3>
+            <p>Conexão entre sistemas, serviços e ferramentas externas.</p>
+          </article>
+          <article class="card lift skill-card">
+            <div class="icon-box"><span data-icon="bot" class="ic-lg"></span></div>
+            <h3>IA aplicada ao Desenvolvimento</h3>
+            <p>Uso de inteligência artificial para aprimorar e agilizar o processo de criação.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== PROJETOS ==================== -->
+    <section class="section section-alt" id="projetos">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">// portfólio</span>
+          <h2 class="title">Projetos que transformam ideias <span class="ac">em realidade.</span></h2>
+          <p class="lead">Conheça alguns dos projetos que desenvolvi, aplicando tecnologia para criar experiências digitais e resolver necessidades reais.</p>
+        </div>
+
+        <div id="projects-list">
+          <!-- ============================================================
+               PROJETO 1 — Ana Nails
+               Para adicionar novos projetos futuramente, duplique este
+               bloco <article> abaixo e atualize os textos, a imagem e o link.
+               ============================================================ -->
+          <article class="project-card" data-reveal>
+            <div class="project-media">
+              <div class="browser">
+                <div class="browser-bar" aria-hidden="true">
+                  <div class="editor-dots"><span></span><span></span><span></span></div>
+                  <span class="browser-url"><span data-icon="lock" class="ic-xs"></span>ana-nails-suite.onrender.com</span>
+                </div>
+                <div class="browser-body browser-body--shot">
+                  <img src="assets/img/projetos/ana-nails.jpg" alt="Página inicial do site da Ana Nails — nail designer, com apresentação de serviços e agendamento de horários" width="1155" height="630" loading="lazy">
+                </div>
+              </div>
+            </div>
+
+            <div class="project-info">
+              <span class="badge badge-green"><span class="status-dot" aria-hidden="true"></span>Projeto em destaque</span>
+              <h3>Ana Nails — Site Profissional</h3>
+              <p>Desenvolvimento de um site profissional para uma profissional da área de beleza, com apresentação de serviços, identidade visual e experiência digital para seus clientes.</p>
+
+              <div class="tech-slot">
+                <span data-icon="sparkles" class="ic-sm"></span>
+                <span><strong>Tecnologias utilizadas:</strong> React e Lovable.</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="#" id="project-btn" class="btn btn-primary" data-config-key="anaNailsLink" aria-disabled="true">
+                  Visualizar projeto
+                  <span data-icon="arrow-up-right" class="ic-sm"></span>
+                </a>
+                <span class="pending-note" id="project-pending-note">Link do projeto será adicionado em breve.</span>
+              </div>
+            </div>
+          </article>
+          <!-- ============================================================
+               MODELO PARA NOVOS PROJETOS (duplicar e preencher):
+               <article class="project-card" data-reveal>
+                 <div class="project-media"> … mesma estrutura acima … </div>
+                 <div class="project-info">
+                   <span class="badge badge-green">…</span>
+                   <h3>Nome do projeto</h3>
+                   <p>Descrição…</p>
+                   <div class="tech-slot">…</div>
+                   <div class="project-actions"><a href="LINK" class="btn btn-primary">Visualizar projeto …</a></div>
+                 </div>
+               </article>
+               ============================================================ -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SERVIÇOS ==================== -->
+    <section class="section" id="servicos">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">// serviços</span>
+          <h2 class="title">Soluções digitais para tirar suas ideias <span class="ac">do papel.</span></h2>
+          <p class="lead">Desenvolvo soluções digitais personalizadas para pessoas, profissionais e empresas que desejam fortalecer sua presença online, otimizar processos ou transformar uma ideia em um projeto real.</p>
+        </div>
+
+        <div class="services-grid" data-reveal-group>
+          <article class="card lift service-card">
+            <div class="icon-box"><span data-icon="globe" class="ic-lg"></span></div>
+            <h3>Criação de Sites Profissionais</h3>
+            <p>Sites modernos, responsivos e personalizados para apresentar negócios e fortalecer marcas.</p>
+            <a href="#contato" class="btn btn-ghost btn-sm js-orcamento" data-service="site-profissional">Solicitar orçamento<span data-icon="arrow-right" class="ic-xs"></span></a>
+          </article>
+
+          <article class="card lift service-card">
+            <div class="icon-box"><span data-icon="mouse-pointer-click" class="ic-lg"></span></div>
+            <h3>Landing Pages</h3>
+            <p>Páginas estratégicas para apresentar produtos, serviços e gerar oportunidades comerciais.</p>
+            <a href="#contato" class="btn btn-ghost btn-sm js-orcamento" data-service="landing-page">Solicitar orçamento<span data-icon="arrow-right" class="ic-xs"></span></a>
+          </article>
+
+          <article class="card lift service-card">
+            <div class="icon-box"><span data-icon="building-2" class="ic-lg"></span></div>
+            <h3>Sites Institucionais</h3>
+            <p>Presença digital profissional para empresas, profissionais e organizações.</p>
+            <a href="#contato" class="btn btn-ghost btn-sm js-orcamento" data-service="site-institucional">Solicitar orçamento<span data-icon="arrow-right" class="ic-xs"></span></a>
+          </article>
+
+          <article class="card lift service-card">
+            <div class="icon-box"><span data-icon="workflow" class="ic-lg"></span></div>
+            <h3>Sistemas Personalizados</h3>
+            <p>Desenvolvimento de sistemas adaptados às necessidades e aos processos de cada negócio.</p>
+            <a href="#contato" class="btn btn-ghost btn-sm js-orcamento" data-service="sistema-personalizado">Solicitar orçamento<span data-icon="arrow-right" class="ic-xs"></span></a>
+          </article>
+
+          <article class="card lift service-card">
+            <div class="icon-box"><span data-icon="chart-column" class="ic-lg"></span></div>
+            <h3>Dashboards Administrativos</h3>
+            <p>Painéis para organizar informações, acompanhar indicadores e facilitar a gestão.</p>
+            <a href="#contato" class="btn btn-ghost btn-sm js-orcamento" data-service="dashboard">Solicitar orçamento<span data-icon="arrow-right" class="ic-xs"></span></a>
+          </article>
+
+          <article class="card lift service-card">
+            <div class="icon-box"><span data-icon="zap" class="ic-lg"></span></div>
+            <h3>Automação de Processos</h3>
+            <p>Soluções para reduzir tarefas manuais, integrar ferramentas e melhorar processos.</p>
+            <a href="#contato" class="btn btn-ghost btn-sm js-orcamento" data-service="automacao">Solicitar orçamento<span data-icon="arrow-right" class="ic-xs"></span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PROCESSO ==================== -->
+    <section class="section section-alt" id="processo">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">// processo</span>
+          <h2 class="title">Como funciona <span class="ac">meu trabalho.</span></h2>
+          <p class="lead">Um processo claro e direto, do primeiro contato até a entrega da solução.</p>
+        </div>
+
+        <ol class="process-grid" data-reveal-group>
+          <li class="step">
+            <div class="step-num" aria-hidden="true">01</div>
+            <h3><span data-icon="messages-square" class="ic-sm"></span>Entendimento</h3>
+            <p>Conversamos sobre sua ideia, necessidade ou problema.</p>
+          </li>
+          <li class="step">
+            <div class="step-num" aria-hidden="true">02</div>
+            <h3><span data-icon="pencil-ruler" class="ic-sm"></span>Planejamento</h3>
+            <p>Definimos a melhor solução e estruturamos o projeto.</p>
+          </li>
+          <li class="step">
+            <div class="step-num" aria-hidden="true">03</div>
+            <h3><span data-icon="code" class="ic-sm"></span>Desenvolvimento</h3>
+            <p>Transformo o planejamento em uma solução digital funcional.</p>
+          </li>
+          <li class="step">
+            <div class="step-num" aria-hidden="true">04</div>
+            <h3><span data-icon="package-check" class="ic-sm"></span>Entrega</h3>
+            <p>Apresento o resultado e realizamos os ajustes necessários.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==================== CHAMADA PARA AÇÃO ==================== -->
+    <section class="section" id="cta">
+      <div class="container">
+        <div class="cta-card" data-reveal>
+          <div class="cta-grid-lines" aria-hidden="true"></div>
+          <div class="cta-inner">
+            <h2>Tem uma ideia? Vamos transformar <span class="ac">em realidade.</span></h2>
+            <p>Se você precisa de um site, sistema ou solução tecnológica, estou pronto para conhecer seu projeto.</p>
+            <div class="cta-actions">
+              <a href="#contato" class="btn btn-primary">
+                <span data-icon="send" class="ic-sm"></span>
+                Solicitar um orçamento
+              </a>
+              <button type="button" class="btn btn-ghost" id="cta-talk">
+                <span data-icon="message-circle" class="ic-sm"></span>
+                Falar comigo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== CONTATO / FORMULÁRIO DE ORÇAMENTO ==================== -->
+    <section class="section section-alt" id="contato">
+      <div class="container">
+        <div class="contact-grid">
+          <div data-reveal>
+            <span class="eyebrow">// contato</span>
+            <h2 class="title">Solicite <span class="ac">um orçamento.</span></h2>
+            <p class="lead">Preencha o formulário com os detalhes da sua ideia. Quanto mais contexto sobre o projeto, melhor.</p>
+
+            <div class="channels">
+              <button type="button" class="btn btn-ghost" id="channel-whatsapp">
+                <span data-icon="message-circle" class="ic"></span>
+                Conversar no WhatsApp
+              </button>
+              <button type="button" class="btn btn-ghost" id="channel-email">
+                <span data-icon="mail" class="ic"></span>
+                Enviar um e-mail
+              </button>
+            </div>
+            <p class="contact-note">Canais diretos para conversarmos sobre o seu projeto — sem compromisso.</p>
+          </div>
+
+          <form class="card form-card" id="form-card" novalidate data-reveal>
+            <div class="form-grid">
+              <div class="field">
+                <label for="f-nome">Nome completo <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="f-nome" name="nome" placeholder="Seu nome completo" autocomplete="name" aria-describedby="err-nome" required />
+                <p class="err" id="err-nome">Informe seu nome completo.</p>
+              </div>
+
+              <div class="field">
+                <label for="f-email">E-mail <span class="req" aria-hidden="true">*</span></label>
+                <input type="email" id="f-email" name="email" placeholder="voce@email.com" autocomplete="email" aria-describedby="err-email" required />
+                <p class="err" id="err-email">Informe um e-mail válido.</p>
+              </div>
+
+              <div class="field">
+                <label for="f-zap">WhatsApp <span class="req" aria-hidden="true">*</span></label>
+                <input type="tel" id="f-zap" name="whatsapp" placeholder="(11) 98765-4321" inputmode="tel" autocomplete="tel" aria-describedby="err-zap" required />
+                <p class="err" id="err-zap">Informe um WhatsApp válido com DDD.</p>
+              </div>
+
+              <div class="field">
+                <label for="f-tipo">Tipo de serviço desejado <span class="req" aria-hidden="true">*</span></label>
+                <select id="f-tipo" name="tipo" aria-describedby="err-tipo" required>
+                  <option value="" selected disabled>Selecione uma opção</option>
+                  <option value="site-profissional">Site profissional</option>
+                  <option value="landing-page">Landing page</option>
+                  <option value="site-institucional">Site institucional</option>
+                  <option value="sistema-personalizado">Sistema personalizado</option>
+                  <option value="dashboard">Dashboard</option>
+                  <option value="automacao">Automação</option>
+                  <option value="outro">Outro</option>
+                </select>
+                <p class="err" id="err-tipo">Selecione o tipo de serviço.</p>
+              </div>
+
+              <div class="field field-full">
+                <label for="f-desc">Descrição do projeto <span class="req" aria-hidden="true">*</span></label>
+                <textarea id="f-desc" name="descricao" rows="5" maxlength="1500" placeholder="Conte sobre o projeto: objetivo, o que precisa ter, referências que goste…" aria-describedby="err-desc" required></textarea>
+                <p class="err" id="err-desc">Descreva brevemente o projeto (mínimo de 10 caracteres).</p>
+              </div>
+
+              <div class="field field-full">
+                <label for="f-prazo">Prazo desejado <span class="opt">(opcional)</span></label>
+                <input type="text" id="f-prazo" name="prazo" maxlength="120" placeholder="Ex.: até o final do mês, em 3 semanas, flexível…" />
+              </div>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn btn-primary">
+                <span data-icon="send" class="ic-sm"></span>
+                Enviar solicitação
+              </button>
+              <p class="form-hint">Seus dados são usados apenas para responder à sua solicitação. <a href="privacidade.html">Política de privacidade</a>.</p>
+            </div>
+
+            <div class="form-alert" id="form-alert" role="alert"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== RODAPÉ ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-logo">OTÁVIO ONISHI</p>
+      <p class="footer-role">Desenvolvedor de Sistemas</p>
+      <p class="footer-tagline"><span class="ac">"</span>Transformando ideias em soluções digitais.<span class="ac">"</span></p>
+
+      <div class="footer-social">
+        <a href="#" data-config-key="github" id="link-github" aria-label="GitHub de Otávio Onishi" title="GitHub">
+          <span data-icon="github" class="ic"></span>
+        </a>
+        <a href="#" data-config-key="instagram" id="link-instagram" aria-label="Instagram de Otávio Onishi" title="Instagram">
+          <span data-icon="instagram" class="ic"></span>
+        </a>
+        <a href="#" data-config-key="whatsapp" id="link-whatsapp" aria-label="WhatsApp de Otávio Onishi" title="WhatsApp">
+          <span data-icon="message-circle" class="ic"></span>
+        </a>
+        <a href="#" data-config-key="email" id="link-email" aria-label="E-mail de Otávio Onishi" title="E-mail">
+          <span data-icon="mail" class="ic"></span>
+        </a>
+      </div>
+    </div>
+    <div class="footer-divider" aria-hidden="true"></div>
+    <div class="container">
+      <nav class="footer-nav" aria-label="Links do rodapé">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Contato</a>
+        <a href="privacidade.html">Privacidade</a>
+      </nav>
+      <p class="footer-bottom"><span class="mono">©</span> <span id="year">2026</span> Otávio Onishi. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Toasts (avisos) -->
+  <div class="toast-wrap" id="toast-wrap" aria-live="polite"></div>
+
+  <!-- Voltar ao topo -->
+  <button type="button" class="top-btn" id="top-btn" aria-label="Voltar ao topo">
+    <span data-icon="arrow-up" class="ic"></span>
+  </button>
+
+  <noscript>
+    <style>
+      [data-reveal], [data-reveal-group] > *, [data-hero-anim] { opacity: 1 !important; transform: none !important; }
+      [data-icon] { display: none; }
+    </style>
+  </noscript>
+
+  <!-- ===== Scripts (ordem importa: config → icons → main) ===== -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/icons.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

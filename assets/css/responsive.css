@@ -1,0 +1,44 @@
+/* ============================================================
+   RESPONSIVO — media queries (deve ser o último CSS)
+   Otávio Onishi — portfólio
+   ============================================================ */
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+@media (max-width: 1020px) {
+  .skills-tech { grid-template-columns: repeat(3, 1fr); }
+  .skills-areas { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 920px) {
+  .nav, .header-cta { display: none; }
+  .menu-btn { display: grid; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 52px; }
+  .editor-wrap { max-width: 620px; }
+  .about-grid { grid-template-columns: minmax(0, 1fr); }
+  .photo-frame { max-width: 430px; width: 100%; margin-inline: auto; }
+  .formation-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 28px; }
+  .process-grid::before { display: none; }
+  .project-card { grid-template-columns: minmax(0, 1fr); }
+  .project-media { border-right: 0; border-bottom: 1px solid var(--border-soft); min-height: 280px; }
+  .contact-grid { grid-template-columns: minmax(0, 1fr); }
+  .timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 28px; }
+  .timeline::before { display: none; }
+  .t-item { padding-top: 0; padding-left: 30px; position: relative; }
+  .t-item::before { top: 5px; }
+}
+@media (max-width: 640px) {
+  .container { padding-inline: 20px; }
+  .skills-tech { grid-template-columns: repeat(2, 1fr); }
+  .skills-areas { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: 1fr; gap: 36px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .hero-actions .btn { flex: 1 1 100%; }
+  .timeline { grid-template-columns: 1fr; }
+  .footer-social a { width: 46px; height: 46px; }
+}
+@media (max-width: 420px) {
+  .skills-tech { grid-template-columns: 1fr; }

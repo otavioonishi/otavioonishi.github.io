@@ -1,0 +1,14 @@
+# Sistema / editor
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+*~
+
+# Editores
+.vscode/
+.idea/
+
+# Dependências e build (não usados hoje, mas evitam commits por acidente)
+node_modules/
+dist/

@@ -1,0 +1,70 @@
+/* ============================================================
+   UI — toasts, voltar ao topo e animações
+   Otávio Onishi — portfólio
+   ============================================================ */
+
+/* ============================================================
+   TOAST + VOLTAR AO TOPO
+   ============================================================ */
+.toast-wrap {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  z-index: 200;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  width: min(92vw, 440px);
+  pointer-events: none;
+}
+.toast {
+  pointer-events: auto;
+  width: 100%;
+  display: flex; align-items: flex-start; gap: 12px;
+  background: #131C26;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 14px 18px;
+  font-size: 14px; line-height: 1.55;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .5);
+  opacity: 0; transform: translateY(14px);
+  transition: opacity .35s var(--ease), transform .35s var(--ease);
+  cursor: pointer;
+}
+.toast.show { opacity: 1; transform: none; }
+.toast.hide { opacity: 0; transform: translateY(10px); }
+.toast .ic { margin-top: 2px; }
+.toast.t-success .ic { color: var(--accent); }
+.toast.t-error .ic { color: var(--error); }
+.toast.t-warning .ic { color: var(--warn); }
+.toast.t-info .ic { color: var(--muted); }
+
+.top-btn {
+  position: fixed; right: 22px; bottom: 22px; z-index: 90;
+  width: 44px; height: 44px; border-radius: 12px;
+  display: grid; place-items: center;
+  background: rgba(21, 29, 38, .85);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  opacity: 0; transform: translateY(10px); pointer-events: none;
+  transition: opacity .3s var(--ease), transform .3s var(--ease), color .3s, border-color .3s;
+}
+.top-btn.show { opacity: 1; transform: none; pointer-events: auto; }
+.top-btn:hover { color: var(--accent); border-color: var(--accent-line); }
+
+/* ============================================================
+   ANIMAÇÕES DE ENTRADA
+   ============================================================ */
+[data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .75s var(--ease), transform .75s var(--ease); }
+[data-reveal].in { opacity: 1; transform: none; }
+[data-reveal-group] > * { opacity: 0; transform: translateY(22px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+[data-reveal-group].in > * { opacity: 1; transform: none; }
+
+[data-hero-anim] { opacity: 0; animation: heroUp .85s var(--ease) forwards; }
+@keyframes heroUp { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+.editor [data-hero-anim] { opacity: 1; animation: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  [data-reveal], [data-reveal-group] > *, [data-hero-anim] { opacity: 1 !important; transform: none !important; }
+  .marquee-track { animation: none !important; }
+}

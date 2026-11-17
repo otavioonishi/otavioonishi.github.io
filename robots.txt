@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://otavioonishi.github.io/sitemap.xml
