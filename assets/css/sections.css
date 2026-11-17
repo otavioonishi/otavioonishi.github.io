@@ -537,13 +537,19 @@ body.menu-open { overflow: hidden; }
 .cta-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
 
 /* ============================================================
-   CONTATO / FORMULÁRIO
+   CONTATO / ORÇAMENTO
    ============================================================ */
 .contact-grid { display: grid; grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); gap: clamp(36px, 5vw, 60px); align-items: start; }
 .channels { margin-top: 30px; display: grid; gap: 12px; }
 .channels .btn { justify-content: flex-start; }
 .contact-note { margin-top: 18px; font-size: 13px; color: var(--faint); line-height: 1.7; }
 .contact-note a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.contact-cta { padding: clamp(26px, 3.5vw, 34px); display: grid; gap: 18px; align-content: center; }
+.contact-cta .icon-box { width: 48px; height: 48px; flex-basis: 48px; border-radius: 13px; }
+.contact-cta .btn { justify-self: start; }
+
+#orcamento { padding-top: clamp(40px, 5vw, 64px); }
+#orcamento .form-gate { max-width: 920px; margin-inline: auto; }
 
 /* ---------- Formulário protegido por botão ---------- */
 .form-gate { padding: 0; overflow: hidden; }

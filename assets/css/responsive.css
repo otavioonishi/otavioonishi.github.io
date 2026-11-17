@@ -36,6 +36,7 @@
   .form-grid { grid-template-columns: 1fr; }
   .form-gate-trigger { flex-wrap: wrap; }
   .form-gate-action { width: 100%; justify-content: center; }
+  .contact-cta .btn { width: 100%; justify-self: stretch; }
   .hero-actions .btn { flex: 1 1 100%; }
   .timeline { grid-template-columns: 1fr; }
   .footer-social a { width: 46px; height: 46px; }

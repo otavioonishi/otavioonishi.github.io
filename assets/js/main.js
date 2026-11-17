@@ -189,7 +189,7 @@
       requestAnimationFrame(focusFirstField);
 
       if (shouldScroll !== false) {
-        var target = $("#contato");
+        var target = $("#orcamento");
         if (target) {
           target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
         }
@@ -250,7 +250,7 @@
     if (ctaTalk) ctaTalk.addEventListener("click", function () {
       if (CONFIG.whatsapp || CONFIG.email) { openChannel(CONFIG.whatsapp ? "whatsapp" : "email"); }
       else {
-        var target = $("#contato");
+        var target = $("#orcamento");
         if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     });
