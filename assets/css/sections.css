@@ -225,50 +225,6 @@ body.menu-open { overflow: hidden; }
 /* ============================================================
    SOBRE MIM
    ============================================================ */
-.about-grid {
-  display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
-  gap: clamp(40px, 5vw, 72px); align-items: start;
-}
-.photo-frame {
-  position: relative;
-  aspect-ratio: 4 / 5;
-  border-radius: 20px;
-  background:
-    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(163, 255, 95, .05), transparent 60%),
-    repeating-linear-gradient(-45deg, rgba(38, 49, 61, .16) 0 1px, transparent 1px 14px),
-    var(--card);
-  border: 1px solid var(--border);
-  display: grid; place-items: center;
-  overflow: hidden;
-}
-.corner { position: absolute; width: 24px; height: 24px; border-color: var(--accent); border-style: solid; border-width: 0; opacity: .85; z-index: 3; }
-.corner.tl { top: 16px; left: 16px; border-top-width: 2px; border-left-width: 2px; border-top-left-radius: 8px; }
-.corner.tr { top: 16px; right: 16px; border-top-width: 2px; border-right-width: 2px; border-top-right-radius: 8px; }
-.corner.bl { bottom: 16px; left: 16px; border-bottom-width: 2px; border-left-width: 2px; border-bottom-left-radius: 8px; }
-.corner.br { bottom: 16px; right: 16px; border-bottom-width: 2px; border-right-width: 2px; border-bottom-right-radius: 8px; }
-
-.photo-img {
-  position: absolute; inset: 0; z-index: 2;
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: center 25%;
-  background: var(--card-deep);
-}
-.photo-inner { text-align: center; padding: 24px; max-width: 300px; display: grid; justify-items: center; gap: 12px; }
-.photo-inner code { font-family: var(--font-mono); font-size: 11.5px; color: var(--accent); }
-.photo-inner .icon-box { width: 56px; height: 56px; flex-basis: 56px; border-radius: 16px; }
-.photo-inner h3 { font-family: var(--font-display); font-size: 16px; font-weight: 700; }
-.photo-inner p { font-size: 13px; color: var(--muted); line-height: 1.6; }
-.photo-tag {
-  position: absolute; bottom: 18px; left: 18px;
-  z-index: 3;
-  font-family: var(--font-mono); font-size: 11px; color: var(--muted);
-  background: rgba(9, 13, 18, .75);
-  border: 1px solid var(--border-soft);
-  padding: 6px 11px; border-radius: 8px;
-  display: inline-flex; align-items: center; gap: 7px;
-}
-.photo-tag .ic-xs { color: var(--accent); }
-
 .about-text p { color: var(--muted); line-height: 1.8; margin-bottom: 18px; font-size: 15.5px; }
 .about-text p.lede { color: var(--text); font-size: clamp(16.5px, 1.8vw, 18.5px); line-height: 1.7; margin-bottom: 22px; }
 .about-text p strong { color: var(--text); font-weight: 600; }

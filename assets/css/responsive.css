@@ -15,8 +15,6 @@
   .menu-btn { display: grid; }
   .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 52px; }
   .editor-wrap { max-width: 620px; }
-  .about-grid { grid-template-columns: minmax(0, 1fr); }
-  .photo-frame { max-width: 430px; width: 100%; margin-inline: auto; }
   .formation-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 28px; }

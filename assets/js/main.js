@@ -424,20 +424,6 @@
     var yearEl = $("#year");
     if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-    /* ================= Foto de perfil (com espaço reservado) =================
-       Se assets/img/foto-perfil.jpg não existir, mostra o quadro reservado. */
-    var profilePhoto = $("#profile-photo");
-    var photoFallback = $("#photo-fallback");
-    if (profilePhoto && photoFallback) {
-      var showPhotoFallback = function () {
-        profilePhoto.hidden = true;
-        profilePhoto.removeAttribute("src");
-        photoFallback.removeAttribute("aria-hidden");
-      };
-      profilePhoto.addEventListener("error", showPhotoFallback);
-      if (profilePhoto.complete && profilePhoto.naturalWidth === 0) showPhotoFallback();
-    }
-
     /* ================= Inicialização ================= */
     renderIcons(document);
   })();

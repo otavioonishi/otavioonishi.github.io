@@ -27,7 +27,6 @@ otavio proj/
         ├── favicon.svg
         ├── apple-touch-icon.png
         ├── og-cover.jpg    imagem de compartilhamento (1200×630)
-        ├── foto-perfil.jpg foto profissional (adicione você mesmo)
         └── projetos/
             └── ana-nails.jpg
 ```
@@ -50,12 +49,6 @@ Tudo o que é variável está em **`assets/js/config.js`**:
 
 O e-mail fica em base64 apenas para dificultar a coleta por robôs de spam.
 Para trocar, gere o base64 do usuário e do domínio em <https://www.base64encode.org/>.
-
-### Foto de perfil
-
-Coloque o arquivo em `assets/img/foto-perfil.jpg`, na proporção **4:5** e com cerca de
-800 px de largura. Enquanto o arquivo não existir, o site mostra automaticamente o
-quadro reservado — não é preciso mexer no HTML.
 
 ### Textos e conteúdo
 
